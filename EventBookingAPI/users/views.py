@@ -15,7 +15,7 @@ class RegistrationView(mixins.CreateModelMixin, generics.GenericAPIView):
     def post(self,request,*args,**kwargs):
         return self.create(request,*args,**kwargs)
     
-class ProfileSerializer(generics.RetrieveUpdateAPIView):
+class ProfileView(generics.RetrieveUpdateAPIView):
     serializer_class=ProfileSerializer
     permission_classes=[IsAuthenticated]
 

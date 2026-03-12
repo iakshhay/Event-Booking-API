@@ -23,7 +23,7 @@ class User(AbstractUser):
     
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
-    phone=PhoneNumberField(blank=True,unique=True,region="IN")
+    phone=PhoneNumberField(blank=True,unique=True,null=True,region="IN")
     date_of_birth=models.DateField(blank=True,null=True)
     address=models.CharField(max_length=255,blank=True)
     city=models.CharField(max_length=50,blank=True)
