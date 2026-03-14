@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'events',
+    'bookings'
 ]
 
 REST_FRAMEWORK={
