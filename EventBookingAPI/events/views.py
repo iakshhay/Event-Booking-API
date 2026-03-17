@@ -11,6 +11,7 @@ class EventViewSet(viewsets.ModelViewSet):
     lookup_field="slug"
     filterset_fields=['city', 'event_type', 'language', 'status']
     search_fields=['title','description','location']
+    ordering_fields=['event_date_time','created_at']
 
     permission_classes_by_action={
         'list':[AllowAny],
