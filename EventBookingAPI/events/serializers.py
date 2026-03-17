@@ -5,7 +5,7 @@ from .models import Event
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model=Event
-        fields=['title','slug','description','language','event_type','location','city','max_capacity','available_seats','event_date_time','status','created_at']
+        fields=['title','description','language','event_type','location','city','max_capacity','available_seats','event_date_time','status','created_at']
         extra_kwargs={
             "slug":{"read_only":True},
             "available_seats":{"read_only":True},
@@ -21,4 +21,3 @@ class EventSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user=self.context['request'].user
         return Event.objects.create(organizer=user,**validated_data)
-

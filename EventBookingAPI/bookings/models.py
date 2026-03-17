@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from users.models import User
 from events.models import Event
 
@@ -19,7 +20,9 @@ class Booking(models.Model):
 
     class Meta:
         constraints=[
-            models.UniqueConstraint(fields=['user','event'],name="unique_event_booking")
+            models.UniqueConstraint(fields=['user','event'],
+                                    condition=~Q(status='cancelled'),
+                                    name="unique_event_booking_for_active_bookings")
         ]
 
     def __str__(self):
