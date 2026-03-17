@@ -11,3 +11,7 @@ class IsOwnerOrganizer(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         return obj.organizer == request.user
+
+class IsBookingOwner(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return request.user==obj.user
