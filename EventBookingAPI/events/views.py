@@ -10,6 +10,7 @@ class EventViewSet(viewsets.ModelViewSet):
     serializer_class=EventSerializer
     lookup_field="slug"
     filterset_fields=['city', 'event_type', 'language', 'status']
+    search_fields=['title','description','location']
 
     permission_classes_by_action={
         'list':[AllowAny],
